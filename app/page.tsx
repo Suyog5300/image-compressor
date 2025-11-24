@@ -285,7 +285,7 @@ function PricingSection() {
                     />
                     <PriceCard 
                         tier="Pro"
-                        price={isYearly ? "$9" : "$15"}
+                        price={isYearly ? "$3" : "$5"}
                         period={isYearly ? "/mo billed yearly" : "/mo"}
                         desc="For heavy power users."
                         features={["500MB File Limit", "Cloud Processing", "Bulk Upload (20 files)", "Video Compression", "No Ads"]}
@@ -295,7 +295,7 @@ function PricingSection() {
                     />
                      <PriceCard 
                         tier="Team"
-                        price={isYearly ? "$29" : "$39"}
+                        price={isYearly ? "$12" : "$19"}
                         period={isYearly ? "/mo billed yearly" : "/mo"}
                         desc="For design agencies."
                         features={["Unlimited Size", "API Access", "SSO Integration", "Priority Support", "Team Management"]}

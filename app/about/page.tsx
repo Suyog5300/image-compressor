@@ -5,12 +5,6 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ShieldCheck, Zap, Globe, Cpu } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "About Us - Privacy First Compression",
-  description: "Learn how SnapFile uses WebAssembly to compress files locally without server uploads.",
-};
 
 export default function AboutPage() {
   return (

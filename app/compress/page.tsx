@@ -16,12 +16,6 @@ import { compressFile, CompressionResult, getFileType } from "@/lib/compression"
 import { PricingSection } from "@/components/pricing-section";
 import { AboutSection } from "@/components/about-section";
 import { AdUnit } from "@/components/ad-unit";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Dashboard | SnapFile",
-  description: "Upload and compress multiple files at once. Supports JPG, PNG, PDF, and MP4 formats.",
-};
 
 // --- CONSTANTS ---
 const MAX_FILE_SIZE_MB = 5;
