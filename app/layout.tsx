@@ -72,6 +72,10 @@ export const metadata: Metadata = {
     verification: {
     google: "n7bTQab4LElA3vd_E9626hhcTmPFuHGnoJDnjSOIrsY",
   },
+    // ADD THIS HERE:
+  alternates: {
+    canonical: './',
+  },
   manifest: `${BASE_URL}/site.webmanifest`,
 };
 
