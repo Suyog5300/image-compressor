@@ -15,6 +15,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { compressFile, CompressionResult, getFileType } from "@/lib/compression";
 import { PricingSection } from "@/components/pricing-section";
 import { AboutSection } from "@/components/about-section";
+import { AdUnit } from "@/components/ad-unit";
 
 // --- CONSTANTS ---
 const MAX_FILE_SIZE_MB = 5;
@@ -120,6 +121,8 @@ export default function CompressDashboard() {
   };
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl min-h-screen space-y-12">
+
+         <AdUnit slot="1234567890" className="mb-8" />
       
       {/* --- HEADER --- */}
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
@@ -315,6 +318,7 @@ export default function CompressDashboard() {
 
       </div>
 
+<AdUnit slot="0987654321" className="mt-12" />
       {/* --- BOTTOM SECTIONS --- */}
       <PricingSection />
       <AboutSection />

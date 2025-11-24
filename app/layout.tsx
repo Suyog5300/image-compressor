@@ -1,29 +1,42 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Navbar } from "@/components/navbar"; // We will create this
-import { Toaster } from "@/components/ui/sonner"; // Optional: for toast notifications
+import { Navbar } from "@/components/navbar"; 
+import { Toaster } from "@/components/ui/sonner";
+import Script from "next/script"; // <--- Import this
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "OptiFile - Ultimate Compressor",
-  description: "Compress Images, PDFs, and Videos in seconds.",
+  title: "SnapFile - Compress Anything",
+  description: "Secure, fast, and free file compression tool.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        {/* Google AdSense Script */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID_HERE" // <--- REPLACE THIS
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+        
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="flex min-h-screen flex-col bg-background text-foreground">
             <Navbar />
-            <main className="flex-1 pt-16"> { /* Added pt-16 for fixed navbar */ }
+            <main className="flex-1 pt-16">
                 {children}
             </main>
-            <Toaster /> { /* Add this line */ }
+            <Footer /> {/* We will create this footer below */}
+            <Toaster />
           </div>
         </ThemeProvider>
       </body>
@@ -31,14 +44,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   );
 }
 
+// Simple Footer Component for links
 function Footer() {
-  return (
-    <footer className="border-t py-6 md:py-0">
-      <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
-        <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-          Built by <span className="font-bold">OptiFile</span>. The source code is available on GitHub.
-        </p>
-      </div>
-    </footer>
-  );
+    return (
+        <footer className="border-t py-8 bg-muted/20 mt-auto">
+            <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div className="text-sm text-muted-foreground">
+                    © 2024 SnapFile. All rights reserved.
+                </div>
+                <nav className="flex gap-6 text-sm font-medium">
+                    <a href="/privacy" className="hover:underline">Privacy Policy</a>
+                    <a href="/terms" className="hover:underline">Terms</a>
+                    <a href="/contact" className="hover:underline">Contact</a>
+                </nav>
+            </div>
+        </footer>
+    )
 }

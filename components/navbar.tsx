@@ -2,36 +2,32 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Moon, Sun, Zap, Menu } from "lucide-react";
+import { Moon, Sun, Zap } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 export function Navbar() {
   const { setTheme } = useTheme();
-  const pathname = usePathname();
-
+  
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-background/60 backdrop-blur-md supports-[backdrop-filter]:bg-background/30">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-background/80 backdrop-blur-md">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         
-        {/* Logo */}
         <Link href="/" className="flex items-center space-x-2 font-bold text-xl tracking-tight">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
-                <Zap className="h-5 w-5 fill-white" />
+            <div className="w-8 h-8 bg-[#2e3354] rounded-lg flex items-center justify-center text-white">
+                <Zap className="h-5 w-5 fill-[#34adc4] text-[#34adc4]" />
             </div>
-            <span>OptiFile</span>
+            <span>SnapFile</span>
         </Link>
 
-        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
           <Link href="/compress" className="text-muted-foreground hover:text-foreground transition-colors">Product</Link>
-          <Link href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</Link>
-          <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">API</Link>
-          <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">About</Link>
+          <Link href="/#pricing" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</Link>
+          <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">About</Link>
+          <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</Link>
         </nav>
 
-        {/* Actions */}
         <div className="flex items-center space-x-4">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -48,8 +44,8 @@ export function Navbar() {
             </DropdownMenuContent>
           </DropdownMenu>
           
-          <Button asChild className="hidden md:inline-flex bg-foreground text-background hover:bg-foreground/90 rounded-full px-6">
-             <Link href="/compress">Sign In</Link>
+          <Button asChild className="hidden md:inline-flex bg-[#2e3354] hover:bg-[#2e3354]/90 text-white rounded-full px-6">
+             <Link href="/compress">Get Started</Link>
           </Button>
         </div>
       </div>

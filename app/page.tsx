@@ -82,9 +82,9 @@ export default function LandingPage() {
                 Start Compressing <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="h-14 px-8 text-lg rounded-full border-border bg-background/50 backdrop-blur hover:bg-muted">
+            {/* <Button size="lg" variant="outline" className="h-14 px-8 text-lg rounded-full border-border bg-background/50 backdrop-blur hover:bg-muted">
               View Examples
-            </Button>
+            </Button> */}
           </motion.div>
 
           {/* 3D Mockup Visualization */}
