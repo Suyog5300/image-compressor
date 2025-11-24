@@ -84,12 +84,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         {/* AdSense Script */}
-        <Script
+        {/* <Script
             async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ID"
             crossOrigin="anonymous"
             strategy="afterInteractive"
-        />
+        /> */}
         
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="flex min-h-screen flex-col bg-background text-foreground">
