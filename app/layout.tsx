@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     siteName: "SnapFile",
     images: [
       {
-        url: `${BASE_URL}/og-image.jpg`, // You need to add this image to public folder
+        url: `${BASE_URL}/og-image.png`, // You need to add this image to public folder
         width: 1200,
         height: 630,
         alt: "SnapFile Dashboard",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SnapFile - Ultimate File Compressor",
     description: "Reduce file sizes securely in your browser.",
-    images: [`${BASE_URL}/og-image.jpg`],
+    images: [`${BASE_URL}/og-image.png`],
     creator: "@snapfile",
   },
   icons: {
