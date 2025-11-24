@@ -6,6 +6,8 @@ import { Moon, Sun, Zap } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import Image from "next/image";
+import logo from "@/public/logo2.png";
 
 export function Navbar() {
   const { setTheme } = useTheme();
@@ -15,10 +17,10 @@ export function Navbar() {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         
         <Link href="/" className="flex items-center space-x-2 font-bold text-xl tracking-tight">
-            <div className="w-8 h-8 bg-[#2e3354] rounded-lg flex items-center justify-center text-white">
-                <Zap className="h-5 w-5 fill-[#34adc4] text-[#34adc4]" />
-            </div>
-            <span>SnapFile</span>
+            {/* <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white"> */}
+                <Image src={logo} width={60} height={60} alt="OptiFile Logo" />
+            {/* </div> */}
+            <span>Snap<span className="text-blue-600">File</span></span>
         </Link>
 
         <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
