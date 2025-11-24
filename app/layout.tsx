@@ -1,16 +1,75 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Navbar } from "@/components/navbar"; 
+import { Navbar } from "@/components/navbar";
 import { Toaster } from "@/components/ui/sonner";
-import Script from "next/script"; // <--- Import this
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
+// 1. SETUP BASE URL
+const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "https://www.snapfile.in";
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "SnapFile - Compress Anything",
-  description: "Secure, fast, and free file compression tool.",
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: "SnapFile - Free Online Image, PDF & Video Compressor",
+    template: "%s | SnapFile",
+  },
+  description: "Compress images, PDFs, and Videos directly in your browser. 100% private, free, and fast. Reduce file size without losing quality.",
+  keywords: [
+    "image compressor",
+    "pdf compressor",
+    "video compression",
+    "reduce file size",
+    "online compressor",
+    "free compression tool",
+    "privacy first compressor",
+    "optimize jpeg",
+    "shrink pdf"
+  ],
+  authors: [{ name: "SnapFile Team" }],
+  creator: "SnapFile",
+  publisher: "SnapFile",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: BASE_URL,
+    title: "SnapFile - Compress Anything Instantly",
+    description: "Secure, browser-based file compression. Reduce images, PDFs, and Videos by up to 80%.",
+    siteName: "SnapFile",
+    images: [
+      {
+        url: `${BASE_URL}/og-image.jpg`, // You need to add this image to public folder
+        width: 1200,
+        height: 630,
+        alt: "SnapFile Dashboard",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SnapFile - Ultimate File Compressor",
+    description: "Reduce file sizes securely in your browser.",
+    images: [`${BASE_URL}/og-image.jpg`],
+    creator: "@snapfile",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: `${BASE_URL}/site.webmanifest`,
 };
 
 export default function RootLayout({
@@ -21,12 +80,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        {/* Google AdSense Script */}
+        {/* AdSense Script */}
         <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID_HERE" // <--- REPLACE THIS
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ID"
+            crossOrigin="anonymous"
+            strategy="afterInteractive"
         />
         
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
@@ -35,29 +94,10 @@ export default function RootLayout({
             <main className="flex-1 pt-16">
                 {children}
             </main>
-            <Footer /> {/* We will create this footer below */}
             <Toaster />
           </div>
         </ThemeProvider>
       </body>
     </html>
   );
-}
-
-// Simple Footer Component for links
-function Footer() {
-    return (
-        <footer className="border-t py-8 bg-muted/20 mt-auto">
-            <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div className="text-sm text-muted-foreground">
-                    © 2024 SnapFile. All rights reserved.
-                </div>
-                <nav className="flex gap-6 text-sm font-medium">
-                    <a href="/privacy" className="hover:underline">Privacy Policy</a>
-                    <a href="/terms" className="hover:underline">Terms</a>
-                    <a href="/contact" className="hover:underline">Contact</a>
-                </nav>
-            </div>
-        </footer>
-    )
 }

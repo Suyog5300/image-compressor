@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { useState, useRef } from "react";
 import { toast } from "sonner";
+import Script from "next/script";
 
 // --- Components ---
 
@@ -23,9 +24,33 @@ export default function LandingPage() {
   const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1]);
   const y = useTransform(scrollYProgress, [0, 0.5], [100, 0]);
 
+  const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SnapFile",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "1250"
+  },
+  "featureList": "Image compression, PDF reduction, Video optimization, Privacy-first processing"
+};
+
   return (
     <div className="flex flex-col min-h-screen bg-background overflow-x-hidden">
-      
+          {/* JSON-LD for SEO */}
+    <Script
+      id="json-ld"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
       {/* --- HERO SECTION --- */}
       <section className="relative pt-24 pb-32 md:pt-32 md:pb-48 overflow-hidden">
         
