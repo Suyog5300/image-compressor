@@ -320,8 +320,8 @@ export default function CompressDashboard() {
 
 {/* <AdUnit slot="0987654321" className="mt-12" /> */}
       {/* --- BOTTOM SECTIONS --- */}
-      <PricingSection />
-      <AboutSection />
+      {/* <PricingSection /> */}
+      {/* <AboutSection /> */}
     </div>
   );
 }

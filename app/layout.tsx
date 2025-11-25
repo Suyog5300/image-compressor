@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
+import { Footer } from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -101,6 +102,7 @@ export default function RootLayout({
             <main className="flex-1 pt-16">
                 {children}
             </main>
+            <Footer /> 
             <Toaster />
           </div>
         </ThemeProvider>
