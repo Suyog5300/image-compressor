@@ -6,6 +6,7 @@ import { Navbar } from "@/components/navbar";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
 import { Footer } from "@/components/Footer";
+import { Header } from "@/components/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -66,9 +67,9 @@ export const metadata: Metadata = {
     creator: "@snapfile",
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    icon: "/logo2.png", // The 512x512 file
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
   },
     verification: {
     google: "n7bTQab4LElA3vd_E9626hhcTmPFuHGnoJDnjSOIrsY",
@@ -85,21 +86,32 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
+   // 2. JSON-LD Schema for Google Search
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SnapFile",
+    "url": "https://www.snapfile.in",
+    "logo": "https://www.snapfile.in/icon.png", // Must match your uploaded file URL
+    "sameAs": [
+      "https://twitter.com/snapfile", // Add your social links if you have them
+      "https://github.com/snapfile"
+    ]
+  };
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        {/* AdSense Script */}
-<Script
-    async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6733279375586768"
-    crossOrigin="anonymous"
-    strategy="afterInteractive"
-/>
+        {/* Inject Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="flex min-h-screen flex-col bg-background text-foreground">
-            <Navbar />
-            <main className="flex-1 pt-16">
+            <Header />
+            <main className="">
                 {children}
             </main>
             <Footer /> 

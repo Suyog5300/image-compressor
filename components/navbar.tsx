@@ -24,7 +24,7 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
-          <Link href="/compress" className="text-muted-foreground hover:text-foreground transition-colors">Product</Link>
+          <Link href="/dashboard" className="text-muted-foreground hover:text-foreground transition-colors">Product</Link>
           <Link href="/#pricing" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</Link>
           <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">About</Link>
           <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</Link>
